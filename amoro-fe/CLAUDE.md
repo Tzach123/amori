@@ -11,6 +11,17 @@ React + TypeScript frontend for Amori. Package manager: yarn.
 
 ## Folder structure
 
+Guiding principle: **routing belongs to `app`, page composition belongs to `screens`, business domain belongs to `features`, reusable UI belongs to `components`, business logic belongs to `services`, HTTP communication belongs to `api`.**
+
+| Layer | Responsibility |
+|---|---|
+| `app` | Navigation |
+| `screens` | Page composition |
+| `features` | Business domain |
+| `components` | Reusable UI |
+| `services` | Business logic |
+| `api` | HTTP communication |
+
 Feature-based architecture. `app/` is routing only (App Router) — no business logic there. Each feature under `features/<feature-name>/` is self-contained; top-level `components/`, `hooks/`, `services/`, etc. are for generic, cross-feature code only.
 
 Create folders/files only when there's an actual need for them — do not scaffold empty directories ahead of time.
