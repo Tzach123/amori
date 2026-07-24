@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit(/amoro-fe/**)",
+      "Edit(/amoro-be/**)",
+
+      "Read(.env.example)",
+
+      "Bash(yarn install:*)",
+      "Bash(yarn add:*)",
+      "Bash(yarn remove:*)",
+      "Bash(yarn dev:*)",
+      "Bash(yarn start:*)",
+      "Bash(yarn build:*)",
+      "Bash(yarn test:*)",
+      "Bash(yarn lint:*)",
+      "Bash(yarn format:*)",
+      "Bash(yarn workspace:*)",
+
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git branch:*)",
+      "Bash(git checkout -b:*)",
+
+      "Bash(mkdir:*)",
+      "Bash(touch:*)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.local)",
+      "Read(.env.development)",
+      "Read(.env.development.local)",
+      "Read(.env.production)",
+      "Read(.env.production.local)",
+      "Read(.env.staging)",
+      "Read(.env.staging.local)",
+      "Read(.env.test)",
+      "Read(.env.test.local)"
+    ]
+  }
+}
