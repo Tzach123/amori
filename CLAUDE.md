@@ -3,6 +3,7 @@
 ## Structure
 - `amoro-fe/` — React + TypeScript frontend. See `amoro-fe/CLAUDE.md`.
 - `amoro-be/` — Node.js + TypeScript backend. See `amoro-be/CLAUDE.md`.
+- `docs/prd.md` — Product Requirements Document (MVP scope, out-of-scope, future roadmap).
 
 Each project is developed and run independently unless noted otherwise (no confirmed workspace linkage yet).
 
