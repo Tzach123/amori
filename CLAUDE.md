@@ -15,12 +15,11 @@ Each project is developed and run independently unless noted otherwise (no confi
 ## Working style
 - This project is developed "vibe coding" style: prefer small, direct changes.
 - Avoid premature abstraction or inventing framework/architecture decisions that haven't been made yet.
-- Framework, testing, and styling choices are not yet made — check the relevant sub-project CLAUDE.md before assuming a stack.
+- Frontend stack is settled — see `amoro-fe/CLAUDE.md`. Backend framework/testing/styling are not yet made — check the relevant sub-project CLAUDE.md before assuming a stack.
 
 ## Open decisions
 Update the relevant sub-project CLAUDE.md as these are settled:
-- ~~Frontend build tool~~ → **Next.js** (see `amoro-fe/CLAUDE.md`)
+- ~~Frontend build tool, styling, testing, state management, routing~~ → settled (see `amoro-fe/CLAUDE.md`)
 - Backend framework (Express / Fastify / NestJS / other)
-- Testing framework(s) for each project
-- Styling approach (frontend)
+- Testing framework(s) for backend
 - Whether the repo uses yarn workspaces or two independent yarn projects
