@@ -1,11 +1,13 @@
 # Amori — Kids' Clothing Brand Monorepo
 
 ## Structure
-- `amoro-fe/` — React + TypeScript frontend. See `amoro-fe/CLAUDE.md`.
-- `amoro-be/` — Node.js + TypeScript backend. See `amoro-be/CLAUDE.md`.
+- `amoro-fe/` — React + TypeScript frontend (storefront). See `amoro-fe/CLAUDE.md`.
+- `amoro-be/` — Node.js + TypeScript backend (storefront API). See `amoro-be/CLAUDE.md`.
 - `docs/prd.md` — Product Requirements Document (MVP scope, out-of-scope, future roadmap).
 
-Each project is developed and run independently unless noted otherwise (no confirmed workspace linkage yet).
+Admin (product/order management, per PRD §10) is its own separate system — a distinct project/service from `amoro-be`'s storefront API, with its own auth. Not yet built; folder/name TBD when work starts.
+
+Each project is developed and run independently — two separate yarn projects, no yarn workspaces or shared root `package.json`.
 
 ## Conventions
 - Package manager: **yarn** in both projects (not npm/pnpm).
@@ -16,11 +18,7 @@ Each project is developed and run independently unless noted otherwise (no confi
 ## Working style
 - This project is developed "vibe coding" style: prefer small, direct changes.
 - Avoid premature abstraction or inventing framework/architecture decisions that haven't been made yet.
-- Frontend stack is settled — see `amoro-fe/CLAUDE.md`. Backend framework/testing/styling are not yet made — check the relevant sub-project CLAUDE.md before assuming a stack.
+- Frontend and backend stacks are both settled — see `amoro-fe/CLAUDE.md` and `amoro-be/CLAUDE.md`.
 
 ## Open decisions
-Update the relevant sub-project CLAUDE.md as these are settled:
-- ~~Frontend build tool, styling, testing, state management, routing~~ → settled (see `amoro-fe/CLAUDE.md`)
-- Backend framework (Express / Fastify / NestJS / other)
-- Testing framework(s) for backend
-- Whether the repo uses yarn workspaces or two independent yarn projects
+None currently — all structural decisions are settled.
