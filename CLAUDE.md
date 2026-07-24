@@ -19,7 +19,7 @@ Each project is developed and run independently unless noted otherwise (no confi
 
 ## Open decisions
 Update the relevant sub-project CLAUDE.md as these are settled:
-- Frontend build tool (Vite / Next.js / CRA / other)
+- ~~Frontend build tool~~ → **Next.js** (see `amoro-fe/CLAUDE.md`)
 - Backend framework (Express / Fastify / NestJS / other)
 - Testing framework(s) for each project
 - Styling approach (frontend)

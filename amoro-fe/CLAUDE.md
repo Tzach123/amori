@@ -3,12 +3,11 @@
 React + TypeScript frontend for Amori. Package manager: yarn.
 
 ## Status
-No framework/tooling decisions made yet — this folder is empty. Fill in below as decisions land:
-- [ ] Build tool / framework (Vite, Next.js, CRA, etc.)
+- [x] Build tool / framework: **Next.js**
 - [ ] Styling approach (CSS Modules, Tailwind, styled-components, etc.)
 - [ ] Testing framework
 - [ ] State management (if any)
-- [ ] Routing library
+- [ ] Routing library (Next.js App Router, unless decided otherwise)
 
 ## Conventions (fill in once decided)
 - Component structure: TBD
