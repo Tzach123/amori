@@ -1,10 +1,11 @@
 import { Prisma } from '@prisma/client';
 import { describe, expect, it, vi } from 'vitest';
+import { PrismaService } from '../../common/prisma/prisma.service';
 import { ProductsService } from './products.service';
 
 function createService(products: unknown[] = []) {
   const findMany = vi.fn().mockResolvedValue(products);
-  const prisma = { product: { findMany } } as any;
+  const prisma = { product: { findMany } } as unknown as PrismaService;
   return { service: new ProductsService(prisma), findMany };
 }
 

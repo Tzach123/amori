@@ -1,8 +1,11 @@
 import { describe, expect, it, vi } from 'vitest';
+import { PrismaService } from '../../common/prisma/prisma.service';
 import { CategoriesService } from './categories.service';
 
 function createService(findMany = vi.fn().mockResolvedValue([])) {
-  const prisma = { category: { findMany } } as any;
+  const prisma = {
+    category: { findMany },
+  } as unknown as PrismaService;
   return { service: new CategoriesService(prisma), findMany };
 }
 
