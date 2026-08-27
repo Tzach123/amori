@@ -25,6 +25,9 @@ async function main() {
     },
   });
 
+  // sortOrder ascends right-to-left (rule above) so the featured-products
+  // row reads, left-to-right, in the same order as the mockup: girls items
+  // first, then boys items.
   const products = [
     {
       name: 'שמלת בלון',
@@ -32,7 +35,7 @@ async function main() {
       price: 129.9,
       categoryId: girls.id,
       isFeatured: true,
-      sortOrder: 1,
+      sortOrder: 9,
     },
     {
       name: 'מכנס בלון משובץ',
@@ -40,7 +43,7 @@ async function main() {
       price: 79.9,
       categoryId: girls.id,
       isFeatured: true,
-      sortOrder: 2,
+      sortOrder: 8,
     },
     {
       name: 'גופיית כתף אחת',
@@ -48,7 +51,7 @@ async function main() {
       price: 69.9,
       categoryId: girls.id,
       isFeatured: true,
-      sortOrder: 3,
+      sortOrder: 7,
     },
     {
       name: 'אוברול ג׳ינס פסים עם לבבות',
@@ -56,7 +59,7 @@ async function main() {
       price: 149.9,
       categoryId: girls.id,
       isFeatured: true,
-      sortOrder: 4,
+      sortOrder: 6,
     },
     {
       name: 'מכנס כנים',
@@ -72,7 +75,7 @@ async function main() {
       price: 69.9,
       categoryId: boys.id,
       isFeatured: true,
-      sortOrder: 6,
+      sortOrder: 4,
     },
     {
       name: 'סט פולו ירוק',
@@ -80,7 +83,7 @@ async function main() {
       price: 119.9,
       categoryId: boys.id,
       isFeatured: true,
-      sortOrder: 7,
+      sortOrder: 3,
     },
     {
       name: 'סט פולו פסים תכלת ולבן',
@@ -88,7 +91,7 @@ async function main() {
       price: 119.9,
       categoryId: boys.id,
       isFeatured: true,
-      sortOrder: 8,
+      sortOrder: 2,
     },
     {
       name: 'מכנס ג׳ינס בלון',
@@ -96,14 +99,14 @@ async function main() {
       price: 84.9,
       categoryId: boys.id,
       isFeatured: true,
-      sortOrder: 9,
+      sortOrder: 1,
     },
   ];
 
   for (const product of products) {
     await prisma.product.upsert({
       where: { slug: product.slug },
-      update: {},
+      update: { sortOrder: product.sortOrder },
       create: product,
     });
   }
