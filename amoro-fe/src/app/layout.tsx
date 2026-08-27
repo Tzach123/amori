@@ -17,8 +17,11 @@ const frankRuhlLibre = Frank_Ruhl_Libre({
 });
 
 export const metadata: Metadata = {
-  title: "Amori",
-  description: "Amori — kids' clothing",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+  ),
+  title: { default: "AMORI", template: "%s | AMORI" },
+  description: "AMORI — בגדי ילדים בעיצוב ישראלי, נוחים ועל-זמניים.",
 };
 
 export default function RootLayout({
