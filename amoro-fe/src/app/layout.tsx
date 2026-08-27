@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Rubik, Frank_Ruhl_Libre } from "next/font/google";
+import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { QueryProvider } from "@/providers/query-provider";
 import "./globals.css";
 
 const rubik = Rubik({
@@ -29,7 +32,13 @@ export default function RootLayout({
       dir="rtl"
       className={`h-full antialiased ${rubik.variable} ${frankRuhlLibre.variable}`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <QueryProvider>
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </QueryProvider>
+      </body>
     </html>
   );
 }
