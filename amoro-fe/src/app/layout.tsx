@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Rubik, Frank_Ruhl_Libre } from "next/font/google";
+import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { QueryProvider } from "@/providers/query-provider";
 import "./globals.css";
 
 const rubik = Rubik({
@@ -14,8 +17,11 @@ const frankRuhlLibre = Frank_Ruhl_Libre({
 });
 
 export const metadata: Metadata = {
-  title: "Amori",
-  description: "Amori — kids' clothing",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+  ),
+  title: { default: "AMORI", template: "%s | AMORI" },
+  description: "AMORI — בגדי ילדים בעיצוב ישראלי, נוחים ועל-זמניים.",
 };
 
 export default function RootLayout({
@@ -29,7 +35,13 @@ export default function RootLayout({
       dir="rtl"
       className={`h-full antialiased ${rubik.variable} ${frankRuhlLibre.variable}`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <QueryProvider>
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </QueryProvider>
+      </body>
     </html>
   );
 }
