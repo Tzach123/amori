@@ -9,8 +9,10 @@ import {
   ParseUUIDPipe,
   Patch,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { RateLimitGuard } from '../../common/guards/rate-limit.guard';
 import { CartService } from './cart.service';
 import { AddCartItemDto } from './dto/add-cart-item.dto';
 import { CartResponseDto } from './dto/cart-response.dto';
@@ -22,6 +24,7 @@ export class CartController {
   constructor(private readonly cartService: CartService) {}
 
   @Post()
+  @UseGuards(RateLimitGuard)
   @ApiOkResponse({ type: CartResponseDto })
   async create(): Promise<{ data: CartResponseDto }> {
     const data = await this.cartService.create();
@@ -38,6 +41,7 @@ export class CartController {
   }
 
   @Post(':cartId/items')
+  @UseGuards(RateLimitGuard)
   @ApiOkResponse({ type: CartResponseDto })
   async addItem(
     @Param('cartId', ParseUUIDPipe) cartId: string,
@@ -48,6 +52,7 @@ export class CartController {
   }
 
   @Patch(':cartId/items/:productId')
+  @UseGuards(RateLimitGuard)
   @ApiOkResponse({ type: CartResponseDto })
   async updateItem(
     @Param('cartId', ParseUUIDPipe) cartId: string,
@@ -63,6 +68,7 @@ export class CartController {
   }
 
   @Delete(':cartId/items/:productId')
+  @UseGuards(RateLimitGuard)
   @HttpCode(HttpStatus.OK)
   @ApiOkResponse({ type: CartResponseDto })
   async removeItem(
