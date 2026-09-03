@@ -16,3 +16,8 @@ export class CategoryResponseDto {
   @ApiProperty({ nullable: true, type: String })
   parentId: string | null;
 }
+
+export class CategoryDetailResponseDto extends CategoryResponseDto {
+  @ApiProperty({ type: CategoryResponseDto, isArray: true })
+  children: CategoryResponseDto[];
+}
