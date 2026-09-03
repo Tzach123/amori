@@ -5,11 +5,11 @@ import { CategoriesService } from './categories.service';
 
 function createService(categories: unknown[] = []) {
   const findMany = vi.fn().mockResolvedValue(categories);
-  const findFirst = vi.fn().mockResolvedValue(categories[0] ?? null);
+  const findUnique = vi.fn().mockResolvedValue(categories[0] ?? null);
   const prisma = {
-    category: { findMany, findFirst },
+    category: { findMany, findUnique },
   } as unknown as PrismaService;
-  return { service: new CategoriesService(prisma), findMany, findFirst };
+  return { service: new CategoriesService(prisma), findMany, findUnique };
 }
 
 describe('CategoriesService', () => {
@@ -50,11 +50,11 @@ describe('CategoriesService', () => {
         imageUrl: null,
         parentId: null,
       };
-      const { service, findFirst } = createService([boys]);
+      const { service, findUnique } = createService([boys]);
 
       const category = await service.findBySlug('boys');
 
-      expect(findFirst).toHaveBeenCalledWith(
+      expect(findUnique).toHaveBeenCalledWith(
         expect.objectContaining({ where: { slug: 'boys' } }),
       );
       expect(category.slug).toBe('boys');

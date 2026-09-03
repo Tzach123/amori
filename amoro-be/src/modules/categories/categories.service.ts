@@ -27,7 +27,7 @@ export class CategoriesService {
   }
 
   async findBySlug(slug: string): Promise<CategoryDetailResponseDto> {
-    const category = await this.prisma.category.findFirst({
+    const category = await this.prisma.category.findUnique({
       where: { slug },
       select: {
         ...CATEGORY_SELECT,
