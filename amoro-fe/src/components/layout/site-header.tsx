@@ -61,7 +61,10 @@ export function SiteHeader() {
       </div>
 
       {mobileOpen && (
-        <nav className="flex flex-col gap-1 border-t border-border px-4 py-3 text-sm text-foreground md:hidden">
+        <nav
+          data-testid="mobile-nav"
+          className="flex flex-col gap-1 border-t border-border px-4 py-3 text-sm text-foreground md:hidden"
+        >
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
