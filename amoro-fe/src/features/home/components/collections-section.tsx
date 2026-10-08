@@ -8,7 +8,10 @@ export function CollectionsSection() {
   if (isLoading || !categories?.length) return null;
 
   return (
-    <section className="grid gap-6 sm:grid-cols-2">
+    <section
+      data-testid="collections-section"
+      className="grid gap-6 sm:grid-cols-2"
+    >
       {categories.map((category) => (
         <div key={category.id} className="flex h-72">
           <CategoryCard category={category} />

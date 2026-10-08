@@ -9,7 +9,7 @@ export function FeaturedCollectionSection() {
   if (isLoading || !products?.length) return null;
 
   return (
-    <section className="flex flex-col gap-8">
+    <section data-testid="featured-products-section" className="flex flex-col gap-8">
       <div className="flex flex-col items-center gap-2 text-center">
         <h2 className="font-heading text-2xl text-foreground">הקולקציה</h2>
         <Heart className="size-4 fill-primary text-primary" />
