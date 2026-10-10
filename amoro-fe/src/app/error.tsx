@@ -21,8 +21,8 @@ export default function Error({
       <div className="flex size-16 items-center justify-center rounded-full bg-secondary text-primary">
         <TriangleAlert className="size-8" />
       </div>
-      <div className="flex flex-col gap-2">
-        <h1 className="font-heading text-3xl text-foreground">
+      <div role="alert" aria-live="assertive" className="flex flex-col gap-2">
+        <h1 className="font-heading text-3xl text-foreground sm:text-4xl">
           משהו השתבש
         </h1>
         <p className="text-muted-foreground">

@@ -9,7 +9,7 @@ export default function NotFound() {
         <ShoppingBag className="size-8" />
       </div>
       <div className="flex flex-col gap-2">
-        <h1 className="font-heading text-3xl text-foreground">
+        <h1 className="font-heading text-3xl text-foreground sm:text-4xl">
           העמוד לא נמצא
         </h1>
         <p className="text-muted-foreground">
